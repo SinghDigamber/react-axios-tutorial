@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {  Link } from "react-router-dom";
 
 class DataTable extends Component {
     render() {
@@ -13,6 +14,8 @@ class DataTable extends Component {
                 <td>
                     {this.props.obj.email}
                 </td>
+                <td><Link className="btn btn-success" to={`/edit/${this.props.obj._id}`}>Edit</Link></td>
+                <td><Link className="btn btn-danger" to={`/delete/${this.props.obj._id}`}>Delete</Link></td>
             </tr>
         );
     }
