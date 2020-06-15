@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import CreateUser from "./components/create-user.component";
 import Users from "./components/users.component";
+import EditUser from './components/edit-user-component'
 
 function App() {
   return (<Router>
@@ -11,7 +12,6 @@ function App() {
       <header>
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <a className="navbar-brand">React Axios Tutorial</a>
-
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
@@ -32,6 +32,7 @@ function App() {
               <Route exact path='/' component={CreateUser} />
               <Route path="/create-user" component={CreateUser} />
               <Route path="/users" component={Users} />
+              <Route path="/edit/:id" component={EditUser} />
             </Switch>
           </div>
         </div>
