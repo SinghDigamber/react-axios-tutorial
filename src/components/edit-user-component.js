@@ -1,10 +1,9 @@
-// ** create-user.component.js ** //
+// ** Edit-user.component.js ** //
 
 import React, { Component } from 'react';
 import axios from 'axios';
 
 export default class EditUser extends Component {
-
     constructor(props) {
         super(props)
         this.onChangeUserName = this.onChangeUserName.bind(this);
@@ -43,7 +42,6 @@ export default class EditUser extends Component {
             user: {...currentState.user,email:updatedEmail} }
             ))
     }
-
     onSubmit(e) {
         e.preventDefault()
         axios.put(`http://localhost:4000/users/update/${this.props.match.params.id}`, this.state.user)
@@ -52,13 +50,13 @@ export default class EditUser extends Component {
                     currentState=>({
                         user: {...currentState.user,email:res.email,name:res.name} }
                         )  
-                )
-                
+                        
+                );
+                this.props.history.push("/users");
             }).catch((error) => {
                 console.log(error)
             });
     }
-
 
     render() {
         return (
